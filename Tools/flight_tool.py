@@ -1,10 +1,20 @@
-import os 
-import re 
-import certifi
-import airportsdata
-import pycountry
-import requests
-from dotenv import load_dotenv
+# flight_tool.py
+#
+# This module parses natural-language flight queries, resolves locations to
+# IATA airport codes, and fetches live flight status data from the AviationStack
+# API. It also formats flight results for display and handles common query
+# patterns like "from X to Y", "flights to X", and country/city mentions.
+
+# Standard library imports:
+import os  # access environment variables and set request cert paths
+import re  # regular expressions for parsing user queries and cleaning text
+
+# Third-party imports:
+import certifi  # provides a trusted SSL/TLS certificate bundle for requests
+import airportsdata  # loads airport metadata keyed by IATA code
+import pycountry  # resolves country names and ISO country codes
+import requests  # performs HTTP requests to the AviationStack API
+from dotenv import load_dotenv  # loads environment variables from a .env file
 
 # Load environment variables from a .env file, if present.
 load_dotenv()

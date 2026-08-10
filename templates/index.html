@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Agent AI &mdash; Travel Planner</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <div class="page-bg">
+        <div class="gradient-circle circle-1"></div>
+        <div class="gradient-circle circle-2"></div>
+        <div class="gradient-circle circle-3"></div>
+    </div>
+
+    <div class="app-container">
+
+        <section class="hero-section">
+            <span class="badge">✈️ AI Multi-Agent Travel Planner</span>
+            <h1>Plan your trip in seconds</h1>
+            <p>
+                Describe where you want to go and Trip Agent AI will search flights, hotels,
+                and build a complete day-by-day itinerary for you.
+            </p>
+        </section>
+
+        <section class="planner-card">
+            <div class="card-header">
+                <div>
+                    <h2>Tell us about your trip</h2>
+                    <p>Mention your origin, destination, dates, and budget for the best results.</p>
+                </div>
+                <span class="status-pill">
+                    <span class="status-dot"></span>
+                    Agents Ready
+                </span>
+            </div>
+
+            <div class="input-area">
+                <textarea id="userInput" placeholder="e.g. Plan a 5-day trip from Delhi to Bali for 2 people in October with a budget of $1500"></textarea>
+                <button id="sendBtn" onclick="sendMessage()">
+                    <span id="btnText">Plan My Trip</span>
+                    <span id="btnLoader" class="loader hidden"></span>
+                </button>
+            </div>
+
+            <div class="quick-prompts">
+                <button onclick="setPrompt('Plan a 5-day trip from Delhi to Bali for 2 people in October with a budget of $1500')">Delhi &rarr; Bali</button>
+                <button onclick="setPrompt('Plan a weekend trip from New York to Miami for 1 person next month')">NYC &rarr; Miami</button>
+                <button onclick="setPrompt('Plan a 7-day honeymoon trip from Mumbai to Paris with a mid-range budget')">Mumbai &rarr; Paris</button>
+                <button onclick="setPrompt('Plan a budget backpacking trip from London to Bangkok for 10 days')">London &rarr; Bangkok</button>
+            </div>
+
+            <div id="errorBox" class="error-box hidden"></div>
+        </section>
+
+        <section id="resultSection" class="result-section hidden">
+            <div class="result-header">
+                <div>
+                    <h2>Your Travel Plan</h2>
+                    <p id="threadInfo"></p>
+                </div>
+                <div class="result-actions">
+                    <button class="copy-btn" onclick="copyResult()">Copy</button>
+                    <button class="download-btn" onclick="downloadPDF()">Download PDF</button>
+                </div>
+            </div>
+
+            <div id="pdfContent" class="pdf-content">
+                <h1 class="pdf-title">Trip Agent AI &mdash; Travel Plan</h1>
+                <div id="resultBox" class="result-box"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        Built with LangGraph &middot; FastAPI &middot; Groq
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
