@@ -1,4 +1,4 @@
-# Trip Agent AI
+# Trip Agent AI - Under Developement
 
 Trip Agent AI is a web application that generates a complete travel plan from a single natural-language request. A user describes a trip (for example, "Plan a 7 day trip to Japan from India under a moderate budget"), and the system searches for live flight information, looks up hotel options, and produces a day-by-day itinerary and final travel recommendation using a large language model.
 
